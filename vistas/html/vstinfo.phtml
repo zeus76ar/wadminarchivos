@@ -1,0 +1,57 @@
+<div class="row">
+    <div id="info_icono_tipo" class="col-md-2 col-sm-4">
+        <a href="<?php
+        echo ($this->info["url_imagen"] != '')?$this->info["url_imagen"]:'javascript:void()';
+        ?>" <?php echo ($this->info["url_imagen"] != '')?'target="_blank"':''; ?>
+        title="Clic para ver la imagen">
+            <img src="<?php
+            $imagen = $this->obtenerUrlVistas($this->config, $this->vista) .
+            'imagenes/' . (($this->info["tipo"] == "file")?'archivo-2.png':'dir-5.png');
+            
+            if ($this->info["url_imagen"] != '') $imagen = $this->info["url_imagen"];
+            
+            echo $imagen; ?>"
+            alt="Icono" />
+        </a>
+    </div>
+    <div class="col-md-10 col-sm-8">
+        <div class="row">
+            <div class="col-md-12">
+                <span class="negrita">Nombre:</span> <?php echo $this->info["nombre"] ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <span class="negrita">Tipo:</span> <?php echo $this->info["tipo_traducido"] ?>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <span class="negrita">Tamaño:</span> <?php echo $this->info["tamaño_formato"] ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <span class="negrita">Dueño:</span><br><?php echo $this->info["dueño_nombre"] ?>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <span class="negrita">Grupo:</span><br><?php echo $this->info["grupo_nombre"] ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <span class="negrita">Permisos:</span> <?php
+                echo $this->info["permisos_dueño"] . $this->info["permisos_grupo"] .
+                $this->info["permisos_otros"]; ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <span class="negrita">Ultimo acceso:</span><br><?php
+                echo $this->info["ult_acceso_formato"] ?>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <span class="negrita">Ultima modificacion:</span><br><?php
+                echo $this->info["ult_modificacion_formato"] ?>
+            </div>
+        </div>
+    </div>
+</div>

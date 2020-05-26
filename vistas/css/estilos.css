@@ -1,0 +1,185 @@
+/* ajuste para bootstrap */
+body{
+	padding-top: 70px;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border-color: #BDBDBD #BDBDBD transparent;
+}
+
+div.tab-content{
+	padding-top: 10px;
+	padding-bottom: 10px;
+    border-bottom: solid 1px #BDBDBD;
+}
+
+.modal-header{
+    background-color: #303030;
+    color: #ffffff;
+}
+
+.close {
+	color: #FFFFFF;
+	opacity: 0.6;
+}
+
+.close:hover, .close:focus{
+	color: #FFFFFF;
+	opacity: 0.8;
+}
+
+/* ajustes nprogress */
+#nprogress .bar {
+  background: #DF0101;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #DF0101, 0 0 5px #DF0101;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #DF0101;
+  border-left-color: #DF0101;
+}
+
+/* */
+a{
+	text-decoration: none;
+}
+
+a, a:hover{
+	color: inherit;
+
+}
+
+.marg_inf{
+	margin-bottom: 15px;
+}
+
+.negrita{
+	font-weight: bold;
+}
+
+.alin_der{
+	text-align: right;
+}
+
+.alin_centro{
+	text-align: center;
+}
+
+#poweredby img{
+	width: 100%;
+	height: auto;
+}
+
+/* */
+.error_404{
+	/*
+	max-width: 380px;
+	_width: 380px;
+	margin: 0 auto;
+	*/
+	max-width: 500px;
+	_width: 500px;
+	padding: 30px 20px 50px;
+	border: 1px solid #b3b3b3;
+	border-radius: 4px;
+	margin: 0 auto;
+	box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
+	background: #fcfcfc;
+}
+
+.error_404 h1 {
+	margin: 0 10px;
+	font-size: 50px;
+	text-align: center;
+}
+
+.error_404 h1 span {
+	color: #bbb;
+}
+
+.error_404 h2 {
+	text-align: center;
+}
+
+.error_404 h3 {
+	margin: 1.5em 0 0.5em;
+}
+
+.error_404 p {
+	margin: 1em 0;
+}
+
+.error_404 ul {
+	padding: 0 0 0 40px;
+	margin: 1em 0;
+}
+
+/* */
+div.btn-toolbar{
+	margin-bottom: 10px;
+}
+
+#dexplorador{
+	margin-top: 5px;
+	padding: 4px;
+	border: solid 1px #CCCCCC;
+	min-height: 103px;
+}
+
+#dtotales_listado{
+	/*text-align: right;*/
+	font-weight: bold;
+}
+
+#dtotales_selec{
+	font-weight: bold;
+}
+
+#fdownload{
+	text-align: center;
+}
+
+#info_icono_tipo img{
+	width: 48px;
+	height: 48px;
+}
+
+.dicono{
+	display: inline-block;
+	width: 62px;
+	cursor: pointer;
+	text-align: center;
+	word-wrap: break-word;
+	vertical-align: top;
+	font-size: 0.9em;
+	padding: 2px;
+}
+
+.dicono img{
+	width: 48px;
+	height: 48px;
+}
+
+.dicono:hover{
+	background-color: #E6E6E6;
+}
+
+.icono_selec{
+	/*background-color: #E6E6E6;*/
+}
+
+.dcheck{
+	/*text-align: left;*/
+}
+
+.icono_selec_1{
+	width: 18px;
+	height: 18px;
+}

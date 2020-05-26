@@ -1,0 +1,272 @@
+<ol class="breadcrumb">
+    <li>
+        <a href="#">Home</a>
+    </li>
+</ol>
+
+<div aria-label="Toolbar" role="toolbar" class="btn-toolbar">
+<!-- data-spy="affix" data-offset-top="5" data-offset-bottom="5"> -->
+    <div aria-label="Primer grupo" role="group" class="btn-group btn-group-lg">
+        <button class="btn btn-default" type="button" title="Subir nivel" id="bsubir">
+            <span aria-hidden="true" class="glyphicon glyphicon-level-up"></span>
+        </button>
+    </div>
+    
+	<div aria-label="Segundo grupo" role="group" class="btn-group btn-group-lg">
+        <button class="btn btn-default" type="button" title="Copiar" id="bcopiar"
+        disabled="disabled">
+            <span aria-hidden="true" class="glyphicon glyphicon-duplicate"></span>
+        </button>
+        <button class="btn btn-default" type="button" title="Cortar" id="bcortar"
+        disabled="disabled">
+            <span aria-hidden="true" class="glyphicon glyphicon-scissors"></span>
+        </button>
+        <button class="btn btn-default" type="button" title="Pegar" id="bpegar"
+        disabled="disabled">
+            <span aria-hidden="true" class="glyphicon glyphicon-paste"></span>
+        </button>
+    </div>
+	
+    <div aria-label="Tercer grupo" role="group" class="btn-group btn-group-lg">
+		<button class="btn btn-default" type="button" title="Buscar" id="bbuscar">
+            <span aria-hidden="true" class="glyphicon glyphicon-search"></span>
+        </button>
+		<button class="btn btn-default" type="button" title="Informacion" id="binfo"
+        disabled="disabled">
+            <span aria-hidden="true" class="glyphicon glyphicon-info-sign"></span>
+        </button>
+        <button class="btn btn-default" type="button" title="Cambiar nombre" id="brenombrar"
+        disabled="disabled">
+			|ab
+        </button>
+		<div class="btn-group" role="group">
+			<button class="btn btn-default btn-lg dropdown-toggle" type="button"
+			id="bcomprimir" data-toggle="dropdown"
+			aria-haspopup="true" aria-expanded="false" disabled="disabled">
+				<span aria-hidden="true" class="glyphicon glyphicon-compressed"></span> 
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<?php
+				if (stripos(php_uname('s'), 'windows') === false){
+				?>
+				<li>
+					<a href="javascript:comprimir('targzip')" id="acomprimir"
+					title="Comprimir tar.gz">Comprimir tar.gz</a>
+				</li>
+				<li>
+					<a href="javascript:extraer('targzip')" id="aextraer"
+					title="Extraer tar.gz">Extraer tar.gz</a>
+				</li>
+				<?php
+				}//fin if
+				?>
+				<li disabled="disabled">
+					<a href="javascript:comprimir('zip')" id="acomprimirzip"
+					title="Comprimir Zip">Comprimir Zip</a>
+				</li>
+				<li>
+					<a href="javascript:extraer('zip')" id="aextraerzip"
+					title="Extraer Zip">Extraer Zip</a>
+				</li>
+			</ul>
+		</div>
+        <button class="btn btn-default" type="button" title="Eliminar" id="beliminar"
+        disabled="disabled">
+            <span aria-hidden="true" class="glyphicon glyphicon-trash"></span>
+        </button>
+    </div>
+	
+	<div aria-label="Cuarto grupo" role="group" class="btn-group btn-group-lg">
+        <button class="btn btn-default" type="button" title="Crear directorio" id="bnuevodir">
+            <span aria-hidden="true" class="glyphicon glyphicon-folder-close"></span>
+        </button>
+    </div>
+	
+    <div aria-label="Quinto grupo" role="group" class="btn-group btn-group-lg">
+		<button class="btn btn-default" type="button" title="Crear archivo de texto"
+		id="bnuevoarch">
+            <span aria-hidden="true" class="glyphicon glyphicon-file"></span>
+        </button>
+		<button class="btn btn-default" type="button" title="Modificar archivo de texto"
+		id="bmodificararch" disabled="disabled">
+            <span aria-hidden="true" class="glyphicon glyphicon-edit"></span>
+        </button>
+		<button class="btn btn-default" type="button" title="Subir archivo" id="bupload"
+        data-toggle="modal" data-target="#modal_upload">
+            <span aria-hidden="true" class="glyphicon glyphicon-upload"></span>
+        </button>
+        <button class="btn btn-default" type="button" title="Descargar archivo" id="bdownload"
+        disabled="disabled">
+            <span aria-hidden="true" class="glyphicon glyphicon-download"></span>
+        </button>
+    </div>
+    
+	<div aria-label="Sexto grupo" role="group" class="btn-group btn-group-lg">
+        <button class="btn btn-default" type="button" title="Actualizar" id="bactualizar">
+            <span aria-hidden="true" class="glyphicon glyphicon-refresh"></span>
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div id="dtotales_listado" class="col-md-6 col-sm-6"></div>
+    <div id="dtotales_selec" class="col-md-6 col-sm-6"></div>
+</div>
+
+<div class="" id="dexplorador">
+    <div id="dlistado"></div>
+    
+    <form method="post" action="<?php echo $this->vista["form_action"] ?>" id="flistado">
+        <input type="hidden" id="hdir" name="hdir" value="">
+        
+        <input type="hidden" id="harchselec" name="harchselec" value="">
+        <input type="hidden" id="hdirselec" name="hdirselec" value="">
+        
+        <input type="hidden" id="haccion" name="haccion" value="">
+        
+        <input type="hidden" id="hnuevodir" name="hnuevodir" value="">
+        
+        <input type="hidden" id="hcambiarant" name="hcambiarant" value="">
+        <input type="hidden" id="hcambiarnuevo" name="hcambiarnuevo" value="">
+        
+        <input type="hidden" id="hnomcomprimir" name="hnomcomprimir" value="">
+		<input type="hidden" id="harchextraer" name="harchextraer" value="">
+    </form>
+</div>
+
+<div class="modal fade" id="modal_upload" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Subir archivo</h4>
+            </div>
+            <div id="dformulario" class="modal-body">
+                <form action="<?php echo $this->vista["form_action_subirarch"] ?>"
+                enctype="multipart/form-data" role="form" id="fsubir">
+                    <div class="form-group control-group">
+            			<label for="archivo">Archivo</label>
+            			<input type="file" placeholder="Archivo..."
+            			class="form-control file-style" name="archivo" id="archivo">
+            		</div>
+					<input type="hidden" id="hdir_upload" name="hdir_upload">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="bsubir_arch" class="btn btn-primary">Enviar</button>
+                <button type="button" id="bsubir_arch_cancelar" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="modal_download" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Descargar archivo...</h4>
+            </div>
+            <div class="modal-body">
+				<form action="<?php echo $this->vista["form_action_descargar"] ?>"
+				method="post" role="form" id="fdownload" target="_blank">
+					<input type="hidden" id="harchbajar" name="harchbajar">
+					<button type="submit" id="bdescargar" class="btn btn-default">
+						<span aria-hidden="true" class="glyphicon glyphicon-download"> Descargar
+					</button>
+				</form>
+            </div>
+            <div class="modal-footer"></div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="modal_info" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Informacion...</h4>
+            </div>
+            <div id="dinfo_datos" class="modal-body"></div>
+            <div class="modal-footer"></div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="modal_modificar_arch" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modificar archivo de texto</h4>
+            </div>
+            <div class="modal-body">
+                <form action="<?php echo $this->vista["form_action_modifarch"] ?>"
+				role="form" id="fmodifarch">
+                    <div class="form-group control-group">
+            			<label for="tarchivo">Archivo</label>
+						<textarea class="form-control" name="tarchivo"
+						id="tarchivo" rows="5"></textarea>
+            		</div>
+					<input type="hidden" id="hrutaarch" name="hrutaarch">
+					<input type="hidden" id="hmodifaccion" name="hmodifaccion">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="bmodif_aceptar" class="btn btn-primary">Guardar</button>
+                <button type="button" id="bmodif_cancelar" class="btn btn-default"
+				data-dismiss="modal">Cancelar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="modal_detalle_selec" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Seleccionados...</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" role="form" id="fdetalleselec">
+                    <div>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#tabdirselec" aria-controls="home" role="tab" 
+                                data-toggle="tab"><img src="vistas/imagenes/dir-5.png" 
+                                alt="Dir" class="icono_selec_1"> Directorios</a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#tabarchselec" aria-controls="profile" 
+                                role="tab" data-toggle="tab"><img src="vistas/imagenes/archivo-1.png" 
+                                alt="Dir" class="icono_selec_1"> Archivos</a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="tabdirselec">...</div>
+                            <div role="tabpanel" class="tab-pane" id="tabarchselec">...</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer"></div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="<?php echo $this->obtenerUrlVistas() ?>
+jquery.plugins/bootstrap-filestyle/bootstrap-filestyle.min.js"></script>
+<script src="<?php echo $this->obtenerUrlVistas() ?>js/configurar_filestyle.js"></script>
+
+<script src="<?php echo $this->obtenerUrlVistas() ?>js/vstexplorador.js"></script>

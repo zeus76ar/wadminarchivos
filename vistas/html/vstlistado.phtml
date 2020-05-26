@@ -1,0 +1,47 @@
+<?php
+if (count($this->directorios) > 0){
+    foreach ($this->directorios as $ind=>$valor){
+        if (trim($valor) == '') continue;
+?>
+<div class="dicono">
+    <img src="<?php
+    echo $this->obtenerUrlVistas($this->config, $this->vista) ?>imagenes/dir-5.png"
+    alt="Directorio" data-tipo="dir" data-nombre="<?php echo $valor ?>" />
+    <div class="dcheck">
+        <input type="checkbox" name="dir"
+        data-tipo="dir" data-nombre="<?php echo $valor ?>" />
+    </div>
+    <?php echo $valor ?>
+</div>
+<?php
+    }//fin foreach
+}//fin if
+
+if (count($this->archivos) > 0){
+    foreach ($this->archivos as $ind=>$valor){
+        if (trim($valor) == '') continue;
+?>
+<div class="dicono">
+    <img src="<?php
+    $imagen = ($this->archivos_imagenes[$ind] == '')?
+    ($this->obtenerUrlVistas($this->config, $this->vista) . 'imagenes/archivo-1.png'):
+    $this->archivos_imagenes[$ind];
+    
+    echo $imagen ?>"
+    alt="Archivo" data-tipo="arch" data-nombre="<?php echo $valor ?>" />
+    <div class="dcheck">
+        <input type="checkbox" name="archivo"
+        data-tipo="arch" data-nombre="<?php echo $valor ?>" />
+    </div>
+    <?php echo $valor ?>
+</div>
+<?php
+    }//fin foreach
+}//fin if
+?>
+
+<script src="<?php echo $this->obtenerUrlVistas() ?>js/vstlistado.js"></script>
+
+<script>
+    guardarHdir('<?php echo $this->vista["dir_actual"] ?>');
+</script>

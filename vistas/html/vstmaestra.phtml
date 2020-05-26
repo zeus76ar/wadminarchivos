@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+			<title><?php echo $this->vista["titulo"]; ?></title>
+
+		    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+			<base href="<?php echo $this->vista['base']?>" />
+
+			<!-- CSS -->
+
+			<!-- Bootstrap -->
+            <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet"
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+			integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+			crossorigin="anonymous"/>
+
+            <!-- Optional theme -->
+            <link rel="stylesheet"
+			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+			integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+			crossorigin="anonymous"/>
+
+			<!-- Jquery plugins -->
+			<link rel="stylesheet" type="text/css" media="screen, projection"
+            href="<?php echo $this->obtenerUrlVistas() ?>jquery.plugins/alertify.js/alertify.core.css" />
+			<link rel="stylesheet" type="text/css" media="screen, projection"
+            href="<?php echo $this->obtenerUrlVistas() ?>jquery.plugins/alertify.js/alertify.bootstrap.css" />
+
+			<link rel="stylesheet" type="text/css" media="screen, projection"
+            href="<?php echo $this->obtenerUrlVistas() ?>jquery.plugins/nprogress/nprogress.css" />
+
+			<!-- estilos base -->
+			<link rel="stylesheet" type="text/css" media="screen, projection"
+            href="<?php echo $this->obtenerUrlVistas() ?>css/estilos.css" />
+
+			<!-- JS -->
+
+			<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+			<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+			<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<![endif]-->
+
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+			<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+            <!-- <script src="//code.jquery.com/jquery-migrate-1.4.1.min.js"></script> -->
+
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+			integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+			crossorigin="anonymous"></script>
+
+			<!-- Jquery plugins -->
+			<script type="text/javascript"
+			src="<?php echo $this->obtenerUrlVistas() ?>jquery.plugins/alertify.js/alertify.min.js"></script>
+
+			<script type="text/javascript"
+			src="<?php echo $this->obtenerUrlVistas() ?>jquery.plugins/nprogress/nprogress.js"></script>
+
+			<!-- codigo base-->
+			<script type="text/javascript"
+			src="<?php echo $this->obtenerUrlVistas() ?>js/lib/base.lib.js"></script>
+			<script type="text/javascript"
+			src="<?php echo $this->obtenerUrlVistas() ?>js/configurar_alertify.js"></script>
+			<script type="text/javascript"
+			src="<?php echo $this->obtenerUrlVistas() ?>js/vstmaestra.js"></script>
+
+			<script type="text/javascript">
+				<?php
+				echo "dirvista='".$this->obtenerUrlVistas()."';" .
+				"dirextras='".substr($this->config["dirextras"], 1)."';" .
+				"var1='xcaepq786yu65t4rfe0q';" .
+				"dir_base=['" . $this->vista["dir_root"] . "'];" .
+				"var2='987ytr5400juyiibdg43440nh';\n";
+				?>
+			</script>
+        </head>
+        <body>
+			<?php
+			//cargo el menu correspondiente
+			$this->generarVista("html/vstmenu.phtml");
+			?>
+
+			<div class="container">
+				<div id="dcontenido">
+					<?php
+					//cargo la vista correspondiente
+					$this->generarVista("html/".$this->vista["html"]);
+					?>
+				</div>
+
+				<!-- acerca de -->
+				<div class="modal fade" id="acercade" tabindex="-1" role="dialog"
+				aria-labelledby="acercade_label" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close"
+								data-dismiss="modal" aria-label="Close"><span
+								aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title"><span class="negrita">Acerca de...</span></h4>
+							</div>
+
+							<div class="modal-body">
+								<div class="container-fluid">
+									<h3><?php echo $this->config["sist_nom"] ?></h3>
+									<p>
+										<span class="negrita"><?php echo $this->config["sist_desc"] ?></span>
+									</p>
+									<p>
+										<span class="negrita">Versi&oacute;n:</span>&nbsp;
+										<?php echo $this->config["sist_ver"] ?>
+										<br />
+										<span class="negrita">Subversi&oacute;n:</span>&nbsp;
+										<?php echo $this->config["sist_subver"] ?>
+										<br />
+										<span class="negrita">Desarrollo:</span>&nbsp;
+										<?php echo $this->config["sist_desarrollo"] ?>
+									</p>
+									<p>
+										<span class="negrita">&copy;
+										<?php echo $this->config["sist_anios"] ?>. Todos los derechos reservados.</span>
+									</p>
+									<div id="poweredby" class="row">
+										<div class="col-md-2"></div>
+										<div class="col-md-2">
+											<a href="http://www.w3schools.com/html/html5_intro.asp"
+											target="_blank"><img src="<?php
+											echo $this->obtenerUrlVistas($this->config, $this->vista) ?>imagenes/acercade/html5_logo.png"
+											alt="HTML5" id="html5"></a>
+										</div>
+										<div class="col-md-2">
+											<a href="http://php.net/" class="thumbnail"
+											target="_blank"><img src="<?php
+											echo $this->obtenerUrlVistas($this->config, $this->vista) ?>imagenes/acercade/php_logo.png"
+											alt="PHP" id="php"></a>
+										</div>
+										<div class="col-md-2">
+											<a href="http://jquery.com/" class="thumbnail"
+											target="_blank"><img src="<?php
+											echo $this->obtenerUrlVistas($this->config, $this->vista) ?>imagenes/acercade/jquery_ajax_logo.png"
+											alt="Jquery" id="jquery"></a>
+										</div>
+										<div class="col-md-2">
+											<a href="http://getbootstrap.com/"
+											target="_blank"><img src="<?php
+											echo $this->obtenerUrlVistas($this->config, $this->vista) ?>imagenes/acercade/bootstrap_logo.png"
+											alt="Bootsrap" id="bootstrap"></a>
+										</div>
+										<div class="col-md-2"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+								data-dismiss="modal">Cerrar</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				<!-- /.acerca de -->
+            </div><!-- /.container -->
+        </body>
+    </html>
