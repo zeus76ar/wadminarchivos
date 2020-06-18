@@ -1,6 +1,7 @@
 # wAdminarchivos
 Explorador de arhivos en PHP.
 
+![Demo](screenshot.jpg "Demo")
 
 ## Comenzando 🚀
 
